@@ -27,4 +27,10 @@ $(function() {
 
     return false;
   });
+
+  $("#change-card").click(function() {
+    $(this).hide();
+    $("#credit-card").show();
+    return false;
+  });
 });

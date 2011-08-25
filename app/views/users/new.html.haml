@@ -22,7 +22,10 @@
 
   = f.hidden_field :stripe_token
 
-  #credit-card
+  - if @user.stripe_token
+    = link_to "Change credit card", "#", :id => "change-card"
+
+  #credit-card{:style => @user.stripe_token ? "display:none" : "display:block"}
     #credit-card-errors{:style => "display:none"}
       %h3 There was a problem validating your card:
       %span#stripe-error-message

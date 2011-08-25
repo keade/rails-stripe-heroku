@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   attr_accessor :password, :stripe_token
   before_save :encrypt_password
+  before_save :create_stripe_customer
 
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create

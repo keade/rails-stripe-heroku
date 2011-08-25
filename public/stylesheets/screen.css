@@ -79,3 +79,6 @@ form .security-code {
   #credit-card-errors h3 {
     margin-bottom: 0;
     padding-bottom: 0; }
+
+#change-card {
+  display: block; }
