@@ -20,4 +20,18 @@
   = f.label :password_confirmation
   = f.password_field :password_confirmation, :class => "field"
 
-  = f.submit
+  %span.note
+    Your credit card details will be sent directly to our payment processor
+  = label_tag :credit_card_number
+  = text_field_tag :credit_card_number, params[:credit_card_number], :class => "field"
+
+  = label_tag :expiry_date
+  = date_select "", :expiry_date, :discard_day => true, :order => [:month, :year], :use_month_numbers => true, :start_year => Date.today.year, :end_year => Date.today.year + 25
+  %br
+  %br
+  = label_tag :cvv, "Card security code (CVV)"
+  = text_field_tag :cvv, params[:card_security_code], :class => "field security-code"
+
+  %br
+
+  = f.submit "Register"

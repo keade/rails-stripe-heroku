@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '3.0.10'
 gem "rake", '0.8.7'
 
 # Bundle edge Rails instead:
@@ -10,6 +10,8 @@ gem 'sqlite3'
 gem 'haml'
 gem 'sass'
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'stripe'
+gem 'jquery-rails', '>= 1.0.12'
 
 # Use unicorn as the web server
 # gem 'unicorn'
