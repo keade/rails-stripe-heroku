@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation, :stripe_token
 
-  attr_accessor :password
+  attr_accessor :password, :stripe_token
   before_save :encrypt_password
 
   validates_confirmation_of :password
