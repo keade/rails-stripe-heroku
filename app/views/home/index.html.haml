@@ -4,5 +4,8 @@
   worldwide, you can share your portfolio of startups and brag about their exits.
 
 %p
-  = link_to "Join Today!", "#"
+  - if current_user
+    = link_to "Edit Profile", "#"
+  - else
+    = link_to "Join Today!", register_path
 

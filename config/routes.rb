@@ -1,7 +1,11 @@
 Premium::Application.routes.draw do
   root :to => "home#index"
-  resources :users, :only => [:new, :create]
   match 'register' => 'users#new', :as => :register
+  match "sign_in" => "sessions#new", :as => :sign_in
+  match "sign_out" => "sessions#destroy", :as => :sign_out
+
+  resources :users
+  resources :sessions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

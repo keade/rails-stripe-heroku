@@ -1,0 +1,11 @@
+= form_tag sessions_path do
+  - if flash.alert
+    #errors
+      %h3= flash.alert
+  = label_tag :email
+  = text_field_tag :email, params[:email], :class => 'field'
+
+  = label_tag :password
+  = password_field_tag :password, params[:password], :class => 'field'
+
+  = submit_tag "Sign In"

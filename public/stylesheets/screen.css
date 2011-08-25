@@ -46,6 +46,14 @@ body, html {
   background-color: white;
   padding: 40px;
   padding-top: 20px; }
+  #content #notice {
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: #dddddd;
+    border: 1px solid #999999;
+    padding: 20px;
+    font-weight: bold; }
 
 form label {
   display: block; }

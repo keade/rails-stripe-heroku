@@ -13,9 +13,11 @@
         %ul#navigation
           - if current_user
             %li= link_to "Edit Profile", "#"
-            %li= link_to "Sign Out", "#"
+            %li= link_to "Sign Out", sign_out_path
           - else
-            %li= link_to "Sign In", "#"
+            %li= link_to "Sign In", sign_in_path
             %li= link_to "Register", register_path
     #content
+      - if flash.notice
+        #notice= flash.notice
       = yield
