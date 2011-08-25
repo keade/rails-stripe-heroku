@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_hash
 
       t.string :stripe_id
+      t.boolean :subscribed, :default => false
 
       t.timestamps
     end

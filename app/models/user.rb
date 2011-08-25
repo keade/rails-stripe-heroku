@@ -12,6 +12,18 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_uniqueness_of :email
 
+  def create_stripe_customer
+    if stripe_token.present?
+      customer = Stripe::Customer.create(
+        :description => email,
+        :card => stripe_token
+      )
+      response = customer.update_subscription({:plan => "premium"})
+
+      stripe_id = customer.id
+    end
+  end
+
   def self.authenticate(email, password)
     user = self.find_by_email(email)
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)

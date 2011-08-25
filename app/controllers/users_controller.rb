@@ -11,5 +11,10 @@ class UsersController < ApplicationController
     else
       render :action => :new
     end
+  rescue Stripe::InvalidRequestError => e
+    logger.error e.message
+    @user.errors.add :base, "There was a problem with your credit card"
+    @user.stripe_token = nil
+    render :action => :new
   end
 end

@@ -5,6 +5,11 @@ $(function() {
     var form = this;
     $("#user_submit").attr("disabled", true);
     $("#credit-card-errors").hide();
+
+    if (!$("#credit-card").is(":visible")) {
+      $("#credit-card input").attr("disabled", true);
+      return true;
+    }
     
     var card = {
       number: $("#credit_card_number").val(),
