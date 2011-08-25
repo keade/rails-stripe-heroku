@@ -7,7 +7,15 @@
     = csrf_meta_tag
 
   %body
-    #title
-      %h1 Premium
+    #header
+      #title
+        %h1= link_to "Premium", root_path
+        %ul#navigation
+          - if current_user
+            %li= link_to "Edit Profile", "#"
+            %li= link_to "Sign Out", "#"
+          - else
+            %li= link_to "Sign In", "#"
+            %li= link_to "Register", register_path
     #content
       = yield

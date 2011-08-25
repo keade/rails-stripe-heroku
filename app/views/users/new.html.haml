@@ -1,0 +1,23 @@
+%h2 Register
+
+= form_for @user do |f|
+  - if @user.errors.any?
+    #errors
+      %h3 #{pluralize(@user.errors.count, "problem")} with your registration:
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.label :name
+  = f.text_field :name, :class => "field"
+
+  = f.label :email
+  = f.text_field :email, :class => "field"
+
+  = f.label :password
+  = f.password_field :password, :class => "field"
+
+  = f.label :password_confirmation
+  = f.password_field :password_confirmation, :class => "field"
+
+  = f.submit

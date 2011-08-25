@@ -1,5 +1,7 @@
 Premium::Application.routes.draw do
   root :to => "home#index"
+  resources :users, :only => [:new, :create]
+  match 'register' => 'users#new', :as => :register
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

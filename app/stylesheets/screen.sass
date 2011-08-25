@@ -6,16 +6,40 @@ body, html
   color: #333
   height: 100%
 
-#title
+#header
   background-color: #3B5998
-  color: white
   margin: 0
   padding: 0
-  h1
+  overflow: hidden
+  #title
+    position: relative
     width: 800px
     margin: 0 auto
     padding: 20px
-    padding-left: 40px
+    h1
+      margin: 0
+      padding: 0
+      a
+        color: white
+        text-decoration: none
+
+#navigation
+  position: absolute
+  top: 20px
+  right: 0
+  padding: 20px
+  list-style: none
+  margin: 0
+  padding: 0
+  li
+    display: inline
+    a
+      font-size: 80%
+      text-decoration: underline
+      color: #fff
+      &:hover
+        color: #aaa
+    
 
 #content
   margin: auto
@@ -24,4 +48,18 @@ body, html
   padding: 40px
   padding-top: 20px
   
+form
+  label
+    display: block
+  .field
+    width: 300px
+    padding: 5px
+    font-size: 120%
+    border: 1px solid #999
+    margin-bottom: 20px
+
+.field_with_errors
+  .field
+    border: 2px solid #933
+    width: 298px
 
