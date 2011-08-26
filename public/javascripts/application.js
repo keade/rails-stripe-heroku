@@ -38,6 +38,7 @@ $(function() {
   $("#change-card a").click(function() {
     $("#change-card").hide();
     $("#credit-card").show();
+    $("#credit_card_number").focus();
     return false;
   });
 });
