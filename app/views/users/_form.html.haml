@@ -1,0 +1,61 @@
+= form_for user do |f|
+  - if user.errors.any?
+    #errors
+      %h3 #{pluralize(user.errors.count, "problem")} with your registration:
+      %ul
+        - user.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.label :name
+  = f.text_field :name, :class => "field"
+
+  = f.label :email
+  = f.text_field :email, :class => "field"
+
+  - if defined? editing
+    = f.label :password, "Password (leave blank to keep your current password)"
+  - else
+    = f.label :password
+  = f.password_field :password, :class => "field"
+
+  = f.label :password_confirmation
+  = f.password_field :password_confirmation, :class => "field"
+
+  = f.hidden_field :stripe_token
+  = f.hidden_field :last_4_digits
+
+  - if user.last_4_digits
+    #change-card
+      Using card ending with #{user.last_4_digits}
+      = link_to "change", "#"
+
+  %noscript
+    %p
+      This form requires Javascript to use
+
+  #credit-card{:style => user.last_4_digits ? "display:none" : "display:block"}
+    #credit-card-errors{:style => "display:none"}
+      %h3 There was a problem validating your card:
+      %span#stripe-error-message
+
+    / these fields are disabled before submission and are never transmitted back to rails
+    = label_tag :credit_card_number
+    = text_field_tag :credit_card_number, params[:credit_card_number], :class => "field", :disabled => true
+    .clear
+
+    .float
+      = label_tag :cvv, "Security code (CVV)"
+      = text_field_tag :cvv, params[:cvv], :class => "field", :disabled => true
+    .float
+      = label_tag :expiry_date
+      = date_select "", :expiry_date, :discard_day => true, :order => [:month, :year], 
+        :use_month_numbers => true, :start_year => Date.today.year, :end_year => Date.today.year + 25, :disabled => true
+    .clear 
+      /empty
+    %span.note
+      Your credit card details will be sent directly to our payment processor
+
+  %br
+
+  = f.submit defined?(editing) ? "Update" : "Register"
+

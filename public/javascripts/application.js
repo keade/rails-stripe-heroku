@@ -1,7 +1,7 @@
 $(function() {
   $("#credit-card input, #credit-card select").attr("disabled", false);
 
-  $("#new_user").submit(function() {
+  $("#new_user, .edit_user").submit(function() {
     var form = this;
     $("#user_submit").attr("disabled", true);
     $("#credit-card input, #credit-card select").attr("name", "");

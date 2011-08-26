@@ -3,6 +3,7 @@ Premium::Application.routes.draw do
   match 'register' => 'users#new', :as => :register
   match "sign_in" => "sessions#new", :as => :sign_in
   match "sign_out" => "sessions#destroy", :as => :sign_out
+  match "edit_profile" => "users#edit", :as => :edit_profile
 
   resources :users
   resources :sessions

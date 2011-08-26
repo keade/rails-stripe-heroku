@@ -11,16 +11,24 @@ class User < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :email
   validates_uniqueness_of :email
+  validates_presence_of :last_4_digits
 
   def create_stripe_customer
     if stripe_token.present?
-      customer = Stripe::Customer.create(
-        :description => email,
-        :card => stripe_token
-      )
-      response = customer.update_subscription({:plan => "premium"})
+      if stripe_id.nil?
+        customer = Stripe::Customer.create(
+          :description => email,
+          :card => stripe_token
+        )
+        response = customer.update_subscription({:plan => "premium"})
+      else
+        customer = Stripe::Customer.retrieve(stripe_id)
+        customer.card = stripe_token
+        customer.save
+      end
 
       self.stripe_id = customer.id
+      self.stripe_token = nil
     end
   end
 
