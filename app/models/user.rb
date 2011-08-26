@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
       )
       response = customer.update_subscription({:plan => "premium"})
 
-      stripe_id = customer.id
+      self.stripe_id = customer.id
     end
   end
 

@@ -25,6 +25,10 @@
   - if @user.stripe_token
     = link_to "Change credit card", "#", :id => "change-card"
 
+  %noscript
+    %p
+      This form requires Javascript to use
+
   #credit-card{:style => @user.stripe_token ? "display:none" : "display:block"}
     #credit-card-errors{:style => "display:none"}
       %h3 There was a problem validating your card:
@@ -32,11 +36,18 @@
 
     / these fields are disabled before submission and are never transmitted back to rails
     = label_tag :credit_card_number
-    = text_field_tag :credit_card_number, params[:credit_card_number], :class => "field"
+    = text_field_tag :credit_card_number, params[:credit_card_number], :class => "field", :disabled => true
+    .clear
 
-    = label_tag :expiry_date
-    = date_select "", :expiry_date, :discard_day => true, :order => [:month, :year], 
-      :use_month_numbers => true, :start_year => Date.today.year, :end_year => Date.today.year + 25
+    .float
+      = label_tag :cvv, "Security code (CVV)"
+      = text_field_tag :cvv, params[:cvv], :class => "field", :disabled => true
+    .float
+      = label_tag :expiry_date
+      = date_select "", :expiry_date, :discard_day => true, :order => [:month, :year], 
+        :use_month_numbers => true, :start_year => Date.today.year, :end_year => Date.today.year + 25, :disabled => true
+    .clear 
+      /empty
     %br
     %br
     %span.note

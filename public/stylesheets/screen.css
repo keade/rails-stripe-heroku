@@ -55,20 +55,29 @@ body, html {
     padding: 20px;
     font-weight: bold; }
 
-form label {
-  display: block; }
-form .note {
-  display: block;
-  font-size: 90%;
-  color: #888888; }
-form .field {
-  width: 300px;
-  padding: 5px;
-  font-size: 120%;
-  border: 1px solid #999999;
-  margin-bottom: 20px; }
-form .security-code {
-  width: 50px; }
+form {
+  overflow: hidden; }
+  form label {
+    display: block; }
+  form .note {
+    display: block;
+    font-size: 90%;
+    color: #888888; }
+  form .field {
+    width: 300px;
+    padding: 5px;
+    font-size: 120%;
+    border: 1px solid #999999;
+    margin-bottom: 20px; }
+  form #cvv {
+    width: 50px; }
+  form .float {
+    float: left;
+    margin-right: 30px; }
+  form .clear {
+    clear: both; }
+  form select {
+    margin-top: 5px; }
 
 .field_with_errors .field {
   border: 2px solid #993333;
