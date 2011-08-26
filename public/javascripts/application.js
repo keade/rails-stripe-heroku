@@ -16,7 +16,7 @@ $(function() {
       number:   $("#credit_card_number").val(),
       expMonth: $("#_expiry_date_2i").val(),
       expYear:  $("#_expiry_date_1i").val(),
-      cvv:      $("#cvv").val()
+      cvc:      $("#cvv").val()
     };
 
 
