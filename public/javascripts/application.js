@@ -22,6 +22,7 @@ $(function() {
 
     Stripe.createToken(card, function(status, response) {
       if (status === 200) {
+        $("#user_last_4_digits").val(response.card.last4);
         $("#user_stripe_token").val(response.id);
         form.submit();
       } else {
@@ -34,8 +35,8 @@ $(function() {
     return false;
   });
 
-  $("#change-card").click(function() {
-    $(this).hide();
+  $("#change-card a").click(function() {
+    $("#change-card").hide();
     $("#credit-card").show();
     return false;
   });

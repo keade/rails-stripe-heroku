@@ -21,9 +21,12 @@
   = f.password_field :password_confirmation, :class => "field"
 
   = f.hidden_field :stripe_token
+  = f.hidden_field :last_4_digits
 
   - if @user.stripe_token
-    = link_to "Change credit card", "#", :id => "change-card"
+    #change-card
+      Using card ending with #{@user.last_4_digits}
+      = link_to "change", "#"
 
   %noscript
     %p
