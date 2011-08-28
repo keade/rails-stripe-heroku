@@ -1,4 +1,4 @@
-Premium::Application.routes.draw do
+Monospace::Application.routes.draw do
   root :to => "home#index"
   match 'register' => 'users#new', :as => :register
   match "sign_in" => "sessions#new", :as => :sign_in
