@@ -2,6 +2,7 @@ Monospace is a social network for developers. It's our sample Rails application,
 
 Monospace uses the Stripe Javascript bindings to validate a credit card, and the Stripe Ruby bindings to create a customer and add the credit card to that customer. Customers can also update their credit card.
 
+You can play with a live version at https://monospace-rails.heroku.com/
 
 Installation steps:
 * You will need a publishable token and a secret token. Add them both to config/initializers/stripe.rb.
