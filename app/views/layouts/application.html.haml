@@ -9,17 +9,20 @@
     = csrf_meta_tag
 
   %body
-    #header
-      #title
-        %h1= link_to "Monospace", root_path
-        %ul#navigation
-          - if current_user
-            %li= link_to "Edit Profile", edit_profile_path
-            %li= link_to "Sign Out", sign_out_path
-          - else
-            %li= link_to "Sign In", sign_in_path
-            %li= link_to "Register", register_path
-    #content
-      - if flash.notice
-        #notice= flash.notice
+    .topbar
+      .fill
+        .container
+          %h3= link_to "Monospace", root_path
+          %ul.nav
+            - if current_user
+              %li= link_to "Edit Profile", edit_profile_path
+              %li= link_to "Sign Out", sign_out_path
+            - else
+              %li= link_to "Sign In", sign_in_path
+              %li= link_to "Register", register_path
+    .main.container
+      .row
+        .span6.columns
+          - if flash.notice
+            #notice.alert-message.block-message.success= flash.notice
       = yield
