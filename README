@@ -1,6 +1,6 @@
-This is an example application which uses the Stripe Javascript bindings to authenticate a credit card, and the stripe ruby bindings to create a customer and add the credit card to that customer.
+Monospace is a social network for developers. It's our sample Rails application, showing how to use Stripe to charge subscribers.
 
-Customers can also update their credit card.
+Monospace uses the Stripe Javascript bindings to validate a credit card, and the Stripe Ruby bindings to create a customer and add the credit card to that customer. Customers can also update their credit card.
 
 
 Installation steps:
