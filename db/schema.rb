@@ -16,11 +16,10 @@ ActiveRecord::Schema.define(:version => 20110825210748) do
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "name"
-    t.string   "password_salt"
-    t.string   "password_hash"
+    t.string   "hashed_password"
     t.string   "last_4_digits"
     t.string   "stripe_id"
-    t.boolean  "subscribed",    :default => false
+    t.boolean  "subscribed",      :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
