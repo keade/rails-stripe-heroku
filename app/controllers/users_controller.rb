@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     else
       render :action => :new
     end
-  rescue Stripe::InvalidRequestError => e
+  rescue Stripe::StripeError => e
     logger.error e.message
     @user.errors.add :base, "There was a problem with your credit card"
     @user.stripe_token = nil
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     else
       render :action => :edit
     end
-  rescue Stripe::InvalidRequestError => e
+  rescue Stripe::StripeError => e
     logger.error e.message
     @user.errors.add :base, "There was a problem with your credit card"
     @user.stripe_token = nil
