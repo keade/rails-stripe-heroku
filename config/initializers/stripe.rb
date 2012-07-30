@@ -1,2 +1,2 @@
-Stripe.api_key = "insert your private key"
-STRIPE_PUBLISHABLE_KEY = "pk_ publishable key"
+Stripe.api_key = "S5Tng1tx5vjNLr61vl4DFRDaNRm3Laxx"
+STRIPE_PUBLISHABLE_KEY = "pk_sRmLpDXYR56XMbMPlJjxDTLJeNymr"
