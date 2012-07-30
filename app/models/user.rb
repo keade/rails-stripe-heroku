@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation, :stripe_token, :last_4_digits
+  attr_accessible :name, :email, :address, :city, :state, :zip, :password, :password_confirmation, :stripe_token, :last_4_digits
 
   attr_accessor :password, :stripe_token
   before_save :encrypt_password
@@ -10,9 +10,16 @@ class User < ActiveRecord::Base
 
   validates_presence_of :name
   validates_presence_of :email
+  validates_presence_of :address
+  validates_presence_of :city
+  validates_presence_of :state
+  validates_presence_of :zip
+  
   validates_uniqueness_of :email
   validates_presence_of :last_4_digits
 
+
+# insert plan ID at "001" area
   def update_stripe
     if stripe_token.present?
       if stripe_id.nil?
@@ -21,7 +28,7 @@ class User < ActiveRecord::Base
           :card => stripe_token
         )
         self.last_4_digits = customer.active_card.last4
-        response = customer.update_subscription({:plan => "premium"})
+        response = customer.update_subscription({:plan => "001"})
       else
         customer = Stripe::Customer.retrieve(stripe_id)
         customer.card = stripe_token

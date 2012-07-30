@@ -30,6 +30,26 @@
           = f.label :password_confirmation
           .input
             = f.password_field :password_confirmation, :class => "field"
+		
+        .clearfix
+          = f.label :address
+          .input
+            = f.text_field :address, :class => "field"
+		
+        .clearfix
+          = f.label :city
+          .input
+            = f.text_field :city, :class => "field"
+		
+        .clearfix
+          = f.label :state
+          .input
+            = f.text_field :state, :class => "field"
+			
+        .clearfix
+          = f.label :zip
+          .input
+            = f.text_field :zip, :class => "field"
 
           = f.hidden_field :stripe_token
           = f.hidden_field :last_4_digits

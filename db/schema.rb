@@ -16,12 +16,16 @@ ActiveRecord::Schema.define(:version => 20110825210748) do
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
     t.string   "hashed_password"
     t.string   "last_4_digits"
     t.string   "stripe_id"
     t.boolean  "subscribed",      :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
