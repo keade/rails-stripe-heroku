@@ -1,13 +1,11 @@
-Monospace is a social network for developers. It's our sample Rails application, showing how to use Stripe to charge subscribers.
+This is a modified Monospace for heroku cedar, using Postgres, and updated for some Rails 3.2.2 action.
 
-Monospace uses the Stripe Javascript bindings to validate a credit card, and the Stripe Ruby bindings to create a customer and add the credit card to that customer. Customers can also update their credit card.
 
-You can play with a live version at https://monospace-rails.heroku.com/
 
 Installation steps:
 * You will need a publishable token and a secret token. Add them both to config/initializers/stripe.rb.
 * Install the bundler gem if you don't already have it
 * Run the command "bundle" from the root of this project
-* Run the command "bundle exec rake db:setup" from the root of this project
-* Run the command "bundle exec rails s"
+* Run the command "rake db:migrate" from the root of this project
+* Run the command "rails s"
 
