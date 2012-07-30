@@ -1,6 +1,6 @@
 This is a modified Monospace for heroku cedar, using Postgres, and updated for some Rails 3.2.2 action.
 
-
+Find a test app on Heroku Cedar stack @ http://subscribetest.herokuapp.com/ 
 
 Installation steps:
 * You will need a publishable token and a secret token. Add them both to config/initializers/stripe.rb.
